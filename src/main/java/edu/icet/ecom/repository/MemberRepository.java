@@ -35,4 +35,15 @@ public class MemberRepository {
     }
 
 
+    public String removeMember(String id) {
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.remove(session.find(Member.class,id));
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            return "Something when wrong";
+        }
+        return "Member remove success";
+    }
 }

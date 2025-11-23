@@ -20,8 +20,13 @@ public class MemberController {
         return memberService.getAllMember();
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public String addMember(@RequestBody Member member){
         return memberService.addMember(member);
+    }
+
+    @GetMapping("/remove = {id}")
+    public String removeMember(@PathVariable("id") String id){
+        return memberService.removeMember(id);
     }
 }
