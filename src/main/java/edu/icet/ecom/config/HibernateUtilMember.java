@@ -6,11 +6,11 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtilMember {
     private static SessionFactory sessionFactory;
-    private static Configuration configuration;
+    private HibernateUtilMember(){}
 
     public static SessionFactory getSessionFactory(){
         if (sessionFactory==null){
-            configuration = new Configuration();
+            Configuration configuration = new Configuration();
             configuration.addAnnotatedClass(Member.class);
             configuration.configure("hibernate.cfg.xml");
             sessionFactory = configuration.buildSessionFactory();
