@@ -23,4 +23,8 @@ public class MemberService {
     public String removeMember(String id) {
         return memberRepository.removeMember(id);
     }
+
+    public Member searchMember(String id) {
+        return memberRepository.searchMember(id);
+    }
 }

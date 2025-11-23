@@ -46,4 +46,8 @@ public class MemberRepository {
         }
         return "Member remove success";
     }
+
+    public Member searchMember(String id) {
+        return session.find(Member.class, id);
+    }
 }

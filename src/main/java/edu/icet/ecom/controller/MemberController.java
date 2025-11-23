@@ -25,8 +25,13 @@ public class MemberController {
         return memberService.addMember(member);
     }
 
-    @GetMapping("/remove = {id}")
+    @GetMapping("/remove={id}")
     public String removeMember(@PathVariable("id") String id){
         return memberService.removeMember(id);
+    }
+
+    @GetMapping("/search={id}")
+    public Member searchMember(@PathVariable("id") String id){
+        return memberService.searchMember(id);
     }
 }
