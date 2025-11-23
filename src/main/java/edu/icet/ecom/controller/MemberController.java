@@ -2,20 +2,26 @@ package edu.icet.ecom.controller;
 
 import edu.icet.ecom.model.entity.Member;
 import edu.icet.ecom.service.MemberService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
+
 @RequestMapping("/member")
 public class MemberController {
 
-    MemberService memberService = new MemberService();
+    final MemberService memberService;
 
     @GetMapping("/all")
     public List<Member> getAllMember(){
         return memberService.getAllMember();
+    }
+
+    @PostMapping("add")
+    public String addMember(@RequestBody Member member){
+        return memberService.addMember(member);
     }
 }
