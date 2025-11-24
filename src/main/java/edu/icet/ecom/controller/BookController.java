@@ -25,8 +25,13 @@ public class BookController {
     }
 
     @GetMapping("/remove={id}")
-    public String removBook(@PathVariable String id){
+    public String removeBook(@PathVariable String id){
         return bookService.removeBook(id);
+    }
+
+    @GetMapping("/search={id}")
+    public Book searchBook(@PathVariable String id){
+        return bookService.searchBook(id);
     }
 
 }

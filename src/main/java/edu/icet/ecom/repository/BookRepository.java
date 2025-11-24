@@ -11,13 +11,13 @@ import java.util.List;
 public class BookRepository {
 
     Session session = HibernateUtillBook.getSessionFactory().openSession();
+    Transaction transaction = session.beginTransaction();
 
     public List<Book> getAllBooks(){
         return session.createQuery("from Book", Book.class).list();
     }
 
     public String addBook(Book book) {
-        Transaction transaction = session.beginTransaction();
         try {
             session.persist(book);
             transaction.commit();
@@ -32,7 +32,6 @@ public class BookRepository {
 
 
     public String removeBook(String id) {
-        Transaction transaction = session.beginTransaction();
         try {
             session.remove(session.find(Book.class, id));
             transaction.commit();
@@ -45,5 +44,7 @@ public class BookRepository {
         }
     }
 
-
+    public Book searchBook(String id) {
+        return session.find(Book.class, id);
+    }
 }

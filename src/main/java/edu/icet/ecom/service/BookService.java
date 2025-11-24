@@ -23,4 +23,8 @@ public class BookService {
     public String removeBook(String id) {
         return bookRepository.removeBook(id);
     }
+
+    public Book searchBook(String id) {
+        return bookRepository.searchBook(id);
+    }
 }
