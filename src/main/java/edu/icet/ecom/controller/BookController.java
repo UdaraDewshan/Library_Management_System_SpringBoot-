@@ -24,4 +24,9 @@ public class BookController {
         return bookService.addMember(book);
     }
 
+    @GetMapping("/remove={id}")
+    public String removBook(@PathVariable String id){
+        return bookService.removeBook(id);
+    }
+
 }

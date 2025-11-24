@@ -25,6 +25,25 @@ public class BookRepository {
         } catch (Exception e) {
             transaction.rollback();
             return "something when wrong";
+        }finally {
+            session.close();
         }
     }
+
+
+    public String removeBook(String id) {
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.remove(session.find(Book.class, id));
+            transaction.commit();
+            return "Book Remove Success";
+        } catch (Exception e) {
+            transaction.rollback();
+            return "something when wrong";
+        }finally {
+            session.close();
+        }
+    }
+
+
 }

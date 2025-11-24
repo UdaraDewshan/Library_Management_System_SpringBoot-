@@ -19,4 +19,8 @@ public class BookService {
     public String addMember(Book book) {
         return bookRepository.addBook(book);
     }
+
+    public String removeBook(String id) {
+        return bookRepository.removeBook(id);
+    }
 }
