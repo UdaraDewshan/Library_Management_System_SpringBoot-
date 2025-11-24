@@ -15,4 +15,8 @@ public class BookService {
     public List<Book> getAllService() {
         return bookRepository.getAllBooks();
     }
+
+    public String addMember(Book book) {
+        return bookRepository.addBook(book);
+    }
 }

@@ -3,9 +3,7 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.model.entity.Book;
 import edu.icet.ecom.service.BookService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,9 @@ public class BookController {
         return bookService.getAllService();
     }
 
-
+    @PostMapping("/add")
+    public String addBook(@RequestBody Book book){
+        return bookService.addMember(book);
+    }
 
 }
