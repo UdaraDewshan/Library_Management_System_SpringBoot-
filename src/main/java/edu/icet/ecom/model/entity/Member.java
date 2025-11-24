@@ -11,8 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 
 @Entity
-public class Member {
-
+public class Member{
     @Id
     private String id;
     private String name;
